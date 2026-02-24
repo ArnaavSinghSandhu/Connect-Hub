@@ -90,7 +90,7 @@ io.on("connection", (socket) => {
                 },
                 include:{sender: true}
             });
-            io.to(`user_${receiverId}`).emit(`recieve-message`,newMessage);
+            io.to(`user_${receiverId}`).emit(`receive-message`,newMessage);
 
             socket.emit('message-sent',newMessage);
         }catch(err){
