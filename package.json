@@ -12,7 +12,8 @@
     "socket.io": "^4.8.3"
   },
   "scripts": {
-    "start": "npx prisma generate && node app.js",
+    "start": "node app.js",
+    "build": "npx prisma generate",
     "dev": "nodemon app.js"
   }
 }
