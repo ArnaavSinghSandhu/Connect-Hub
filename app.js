@@ -17,7 +17,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
-
+const port = process.env.PORT || 3000;
 passport.use(
     new LocalStrategy(async (username, password, done) => {
         try {
@@ -64,7 +64,12 @@ app.use("/", (req,res) => {
     res.render("index");
 })
 const server = http.createServer(app);
-const io = new Server(server);
+const io = new Server(server,{
+    cors: {
+        origin: "*", 
+        methods: ["GET", "POST"]
+    }
+});
 
 io.on("connection", (socket) => {
     console.log('User Connected:', socket.id);
@@ -93,4 +98,4 @@ io.on("connection", (socket) => {
         }
     });
 })
-server.listen(3000, () => console.log("Server running on port 3000"));
+server.listen(port, () => console.log("Server running on port 3000"));
