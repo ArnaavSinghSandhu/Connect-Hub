@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Post | Connect Hub</title>
+</head>
+<body>
+    <nav>
+        <a href="/">← Back to Feed</a>
+    </nav>
+
+    <main>
+        <h1>Create A New Post</h1>
+        <form action="/posts" method="POST">
+            <div>
+                <label for="content">What's on your mind, <%= currentUser.username %>?</label><br>
+                <textarea id="content" name="content" rows="5" cols="40" placeholder="Write your Post here..." required></textarea>
+            </div>
+            <br>
+            <button type="submit">Post To Feed</button>
+        </form>
+    </main>
+</body>
+</html>
